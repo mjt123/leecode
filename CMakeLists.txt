@@ -3,6 +3,10 @@ cmake_minimum_required(VERSION 2.8.12)
 
 #项目名称
 PROJECT(leecodeExercise)
+
+Set(ROOT_DIR "{PROJECT_SOURCE_DIR}/")
+INCLUDE_DIRECTORIES()
+
 file(GLOB Main_SRCS "source/*_main.cpp")
 #foreach(Main_FILE ${Main_SRCS})
 #  message(${Main_FILE})
