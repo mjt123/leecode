@@ -12,4 +12,13 @@ void printVector(vector<T> vec) {
   }
   cout << endl;
 }
+template<typename T>
+void printMatrix(vector<vector<T>> matrix){
+    for(auto i:matrix){
+        for(auto j:i){
+          cout<<j<<" ";
+        }
+        cout<<endl;
+    }
+}
 #endif // DEBUG_MESSAGE_H
