@@ -28,53 +28,53 @@
 
  */
 class Solution {
-private:
-    int res_=-1;
-    void binarySearch(vector<int>& nums,int target,int s,int e){
+ private:
+  int res_ = -1;
+  void binarySearch(vector<int>& nums, int target, int s, int e) {
 //        cout<<s<<" "<<e<<endl;
-        if(s>e)
-            return;
-        int m=(s+e)/2;
-        if(nums[m]==target){
-            res_=m;
-            return;
-        }
+    if (s > e)
+      return;
+    int m = (s + e) / 2;
+    if (nums[m] == target) {
+      res_ = m;
+      return;
+    }
 //        cout<<m<<endl;
-        if(nums[s]>nums[e]){
-            if(target<nums[s]&&target>nums[e]){
-                return;
-            }
-            if(nums[m]>nums[std::min(m+1,(int)nums.size()-1)]){
+    if (nums[s] > nums[e]) {
+      if (target < nums[s] && target > nums[e]) {
+        return;
+      }
+      if (nums[m] > nums[std::min(m + 1, (int)nums.size() - 1)]) {
 
 //                cout<<__func__<<" "<<__LINE__<<endl;
-                if(nums[e]<target)
-                    binarySearch(nums,target,s,m-1);
-                else if(nums[s]>target){
-                    binarySearch(nums,target,m+1,e);}
-            }else{
+        if (nums[e] < target)
+          binarySearch(nums, target, s, m - 1);
+        else if (nums[s] > target) {
+          binarySearch(nums, target, m + 1, e);
+        }
+      } else {
 //                cout<<__func__<<" "<<__LINE__<<endl;
-                binarySearch(nums,target,s,m-1);
-                binarySearch(nums,target,m+1,e);
-            }
-        }
-        else{
-            if(nums[m]>target)
-                binarySearch(nums,target,s,m-1);
-            else if(nums[m]<target)
-                binarySearch(nums,target,m+1,e);
-        }
+        binarySearch(nums, target, s, m - 1);
+        binarySearch(nums, target, m + 1, e);
+      }
+    } else {
+      if (nums[m] > target)
+        binarySearch(nums, target, s, m - 1);
+      else if (nums[m] < target)
+        binarySearch(nums, target, m + 1, e);
     }
-public:
-    int search(vector<int>& nums, int target) {
-        binarySearch(nums,target,0,nums.size()-1);
-        return res_;
-    }
+  }
+ public:
+  int search(vector<int>& nums, int target) {
+    binarySearch(nums, target, 0, nums.size() - 1);
+    return res_;
+  }
 };
-int main(){
-    vector<int> nums{4,5,6,7,8,1,2,3};
+int main() {
+  vector<int> nums{4, 5, 6, 7, 8, 1, 2, 3};
 //     vector<int> nums{1};
-    Solution solution;
-   std::cout<< solution.search(nums,8)<<endl;;
+  Solution solution;
+  std::cout << solution.search(nums, 8) << endl;;
 
-return 0;
+  return 0;
 }
