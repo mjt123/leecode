@@ -4,6 +4,7 @@
 #include <stack>
 #include <string>
 #include <deque>
+#include <iostream>
 using namespace std;
 struct TreeNode {
   int val;
@@ -32,3 +33,22 @@ struct ListNode {
   ListNode(int x) : val(x), next(NULL) {}
   ListNode(int x, ListNode* next) : val(x), next(next) {}
 };
+ListNode* constructListNodes(vector<int> vec) {
+  ListNode* res = new ListNode;
+  ListNode* ret = res;
+  for (int i = 0; i < vec.size(); ++i) {
+    res->val = vec[i];
+    if (i != vec.size() - 1) {
+      res->next = new ListNode;
+      res = res->next;
+    }
+  }
+  return ret;
+}
+void printListNode(ListNode* head) {
+  while (head) {
+    cout << head->val << " ";
+    head = head->next;
+  }
+  cout << endl;
+}
