@@ -14,31 +14,35 @@
 输入：head = [1,2,3,3,4,4,5]
 输出：[1,2,5]
 **/
+
 class Solution {
  public:
   ListNode* deleteDuplicates(ListNode* head) {
-    ListNode* res = new ListNode();
-    res->next = head;
-    head = res;
-    while (head && head->next) {
-      while (head->next->val == head->next->next->val) {
-        head->next = head->next->next->next;
-        if (!head->next || !head->next->next) {
-//          goto label;
-          break;
-        }
-      }
-
-      head = head->next;
+    if (!head) {
+      return head;
     }
-//label:
-    return res->next;
+
+    ListNode* dummy = new ListNode(0, head);
+
+    ListNode* cur = dummy;
+    while (cur->next && cur->next->next) {
+      if (cur->next->val == cur->next->next->val) {
+        int x = cur->next->val;
+        while (cur->next && cur->next->val == x) {
+          cur->next = cur->next->next;
+        }
+      } else {
+        cur = cur->next;
+      }
+    }
+
+    return dummy->next;
   }
 };
 int main() {
   ListNode* head = constructListNodes({1, 1, 1, 2, 3});
   Solution solution;
-  solution.deleteDuplicates(head);
-  printListNode(head);
+  ListNode* res = solution.deleteDuplicates(head);
+  printListNode(res);
   return 0;
 }
