@@ -49,3 +49,6 @@ class Solution {
     return res;
   }
 };
+int main() {
+  return 0;
+}
