@@ -55,8 +55,7 @@ int main() {
   idm_parameter.v0 = 120;
   idm_parameter.kethe = 4;
 
-//  double target_spacing = 1 + 1.55 * ego_speed;
-  double target_spacing = 2;
+  double target_spacing = 1 + 1.55 * ego_speed;
 //  double target_spacing = 8 + 1.55 * min(ego_speed, ego_speed + relative_speed);
   double relative_distance = 5;
 
@@ -65,7 +64,6 @@ int main() {
                     -std::max(relative_speed, -ego_speed));
 //  double s_star2 = CalculateSstar_TimeGap(&idm_parameter, 2, 1.55, ego_speed, -std::max(relative_speed, -ego_speed));
 //  cout << s_star << " " << s_star2 << endl;
-  s_star = 10;
   double  safe_acceleration = CalculateAcceleration_IDM(
                                 &idm_parameter, s_star, ego_speed, relative_distance);
   cout << safe_acceleration << endl;
