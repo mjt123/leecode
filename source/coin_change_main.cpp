@@ -12,6 +12,7 @@
 输出：3
 解释：11 = 5 + 5 + 1
  */
+#define INT_MAX 100000
 class Solution {
 public:
     vector<int> count;

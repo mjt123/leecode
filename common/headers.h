@@ -4,4 +4,6 @@
 #include "common/utilty/debug_message.h"
 #include <unordered_map>
 #include <algorithm>
+#include <cmath>
+#include <math.h>
 #endif // HEADERS_H
